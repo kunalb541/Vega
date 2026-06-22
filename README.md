@@ -1,20 +1,21 @@
 # Vega — Forced Photometry Pipeline
 
-> Enter the sky coordinates of any object and get back its brightness history,
+> It took the sky coordinates of any object and returned its brightness history,
 > measured directly from raw survey images.
 
-**Vega** (deployed as **bramhaand.com**) is a web app that builds the light
-curve of an astronomical source on demand. You give it a position on the sky —
-a Right Ascension and Declination — and it fetches the matching images from the
+**Vega** (deployed as **bramhaand.com**) was a web app that built the light
+curve of an astronomical source on demand. You gave it a position on the sky —
+a Right Ascension and Declination — and it fetched the matching images from the
 [Zwicky Transient Facility (ZTF)](https://www.ztf.caltech.edu/) survey archive,
-runs **PSF forced photometry** at that exact position in every epoch, and plots
-how the object's brightness changed over time. Click any point on the curve to
-inspect the difference image it was measured from.
+ran **PSF forced photometry** at that exact position in every epoch, and plotted
+how the object's brightness changed over time. Clicking any point on the curve
+showed the difference image it was measured from.
 
-It was built around 2021, before any of the modern LLM tooling existed, and ran
-live at bramhaand.com for several years.
+It was built around 2021, before any of the modern LLM tooling existed, ran
+live at bramhaand.com for several years, and is now archived here as a snapshot.
 
 <p align="center">
+  <img alt="Status" src="https://img.shields.io/badge/status-archived-lightgrey">
   <img alt="Python" src="https://img.shields.io/badge/Python-3.11-blue">
   <img alt="Plotly Dash" src="https://img.shields.io/badge/UI-Plotly%20Dash-3f4f75">
   <img alt="Astropy" src="https://img.shields.io/badge/Astropy-photutils-orange">
@@ -23,7 +24,7 @@ live at bramhaand.com for several years.
 
 ---
 
-## What it does
+## What it did
 
 Most catalogs only list an object's brightness when a survey's own pipeline
 flagged a confident detection. **Forced photometry** does something different:
@@ -32,17 +33,17 @@ not anything was detected — so you also capture the faint epochs and the
 non-detections. That's exactly what you need to trace a variable star, a
 supernova rising and fading, or an asteroid passing through.
 
-For a requested position the app produces:
+For a requested position the app produced:
 
 - **A light curve** — magnitude vs. time (MJD), split by ZTF filter
   (`g` green, `r` red, `i` infrared), with asymmetric error bars.
-- **Upper limits** — for epochs where the source is below the 3σ detection
-  threshold, it reports a 5σ *limiting magnitude* instead (drawn as
-  downward triangles), so faint/quiescent phases are still informative.
+- **Upper limits** — for epochs where the source was below the 3σ detection
+  threshold, it reported a 5σ *limiting magnitude* instead (drawn as
+  downward triangles), so faint/quiescent phases were still informative.
 - **A reference image** of the field, and the per-epoch **difference image**
-  for any point you click on.
+  for any point you clicked on.
 
-## How it works
+## How it worked
 
 ```
   RA, DEC
