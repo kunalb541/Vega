@@ -1,0 +1,29 @@
+# --- Telescope data (downloaded at runtime, never committed) ---
+app/dat/ref/*
+app/dat/dif/*
+app/dat/psf/*
+app/nparray/*
+!app/dat/ref/.gitkeep
+!app/dat/dif/.gitkeep
+!app/dat/psf/.gitkeep
+!app/nparray/.gitkeep
+*.fits
+*.fits.fz
+*.npy
+delme.dat
+dummy.pkl
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# --- OS / editor ---
+.DS_Store
+*.swp
+.idea/
+.vscode/

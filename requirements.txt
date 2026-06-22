@@ -1,0 +1,13 @@
+# Vega — forced photometry pipeline
+# Tested with Python 3.11
+
+dash>=2.9
+plotly>=5.10
+pandas>=1.5
+numpy>=1.23
+astropy>=5.2
+photutils>=1.6
+requests>=2.28
+
+# Production WSGI server (the deployed bramhaand.com ran on this)
+gunicorn>=20.1
